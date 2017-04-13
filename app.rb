@@ -43,12 +43,12 @@ class HangpersonApp < Sinatra::Base
         wgue = @game.wrong_guesses.length
         begin
             @game.guess(letter)
+            if gue == @game.guesses.length and wgue == @game.wrong_guesses.length
+                flash[:message] = "You have already used that letter"
+            elsif not @game.valid
+                flash[:message] = "Invalid guess"
+            end
         rescue ArgumentError
-            flash[:message] = "Invalid guess"
-        end
-        if gue == @game.guesses.length and wgue == @game.wrong_guesses.length
-            flash[:message] = "You have already used that letter"
-        elsif not @game.valid
             flash[:message] = "Invalid guess"
         end
         redirect '/show'
