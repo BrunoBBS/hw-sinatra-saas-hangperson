@@ -24,7 +24,7 @@ class HangpersonGame
     end
 
     def guess(letter)
-        if not letter =~ /[a-z]/i then raise ArgumentError end
+        if not letter =~ /[a-z]/i then raise ArgumentError.new("The entered character is not a letter") end
         letter.downcase!
         if @word.include? letter and not @guesses.include? letter
             @guesses += letter
