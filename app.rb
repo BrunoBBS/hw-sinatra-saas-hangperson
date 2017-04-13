@@ -64,9 +64,9 @@ class HangpersonApp < Sinatra::Base
         if status == :play
             erb :show # You may change/remove this line
         elsif status == :win
-            erb :win
+            redirect "/win"
         else
-            erb :lose
+            redirect "/lose"
         end
     end
 
