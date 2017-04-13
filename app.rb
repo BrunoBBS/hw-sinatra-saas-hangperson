@@ -71,7 +71,7 @@ class HangpersonApp < Sinatra::Base
             erb :win # You may change/remove this line
         else
             flash[:message] = "Don't try to Cheat"
-            erb :show
+            redirect "/show"
         end
     end
 
@@ -80,6 +80,7 @@ class HangpersonApp < Sinatra::Base
             erb :lose # You may change/remove this line
         else
             flash[:message] = "Don't try to Cheat"
+            redirect "/show"
         end
     end
 end
